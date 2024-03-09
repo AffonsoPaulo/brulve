@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->string('email')->unique();
             $table->string('phone_number');
-            $table->char('account_type');
+            $table->boolean('account_type');
             $table->timestamps();
         });
     }
