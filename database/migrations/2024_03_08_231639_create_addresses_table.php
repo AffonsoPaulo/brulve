@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->string('street');
-            $table->integer('number');
-            $table->string('district');
-            $table->string('city');
-            $table->string('state');
-            $table->string('zip');
+            $table->string('street')->nullable(false);
+            $table->integer('number')->nullable(false);
+            $table->string('district')->nullable(false);
+            $table->string('city')->nullable(false);
+            $table->string('state')->nullable(false);
+            $table->string('zip')->nullable(false);
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->timestamps();
