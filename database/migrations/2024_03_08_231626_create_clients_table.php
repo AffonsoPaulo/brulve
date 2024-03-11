@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique()->nullable(false);
             $table->string('email')->unique()->nullable(false);
-            $table->string('phone_number');
-            $table->boolean('account_type');
+            $table->string('phone_number')->nullable(false);
+            $table->boolean('account_type')->nullable(false);
+            $table->string('cpf_cnpj')->nullable(false);
             $table->timestamps();
         });
     }
