@@ -1,9 +1,9 @@
 <x-main>
     <x-slot:title>Novo Cliente</x-slot:title>
 
-    <section class="d-flex justify-content-between align-content-center bg-body-tertiary rounded-3 p-2 mt-2"
+    <section class="d-flex justify-content-between align-content-center bg-body-tertiary rounded-3 p-2 mt-3"
              style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-        <h5 class="m-0">Clientes</h5>
+        <h5 class="m-0">Adicionar clientes</h5>
         <ol class="breadcrumb m-0">
             <li class="breadcrumb-item"><a href="/">Início</a></li>
             <li class="breadcrumb-item"><a href="/clients">Clientes</a></li>
@@ -11,7 +11,7 @@
         </ol>
     </section>
 
-    <section>
+    <section class="bg-body-tertiary rounded-3 p-2 mt-3">
         <form action="{{ route('clients.store') }}" method="post">
             @csrf
             <p class="form-label">
@@ -48,7 +48,7 @@
                 <input type="text" class="form-control" id="cpf_cnpj" name="cpf_cnpj"
                        placeholder="999.999.999-99 ou 99.999.999/9999-99">
             </div>
-            <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="reset" class="btn btn-secondary">Resetar</button>
             <button type="submit" class="btn btn-primary">Adicionar</button>
         </form>
     </section>

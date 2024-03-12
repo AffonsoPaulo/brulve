@@ -34,8 +34,10 @@ class ClientController extends Controller
             'email' => 'required|email|unique:clients,email',
             'phone_number' => 'required',
             'account_type' => 'required',
-            'cpf_cnpj' => 'required',
+            'cpf_cnpj' => 'required|cpf_cnpj|unique:clients,cpf_cnpj',
         ]);
+
+
     }
 
     /**
