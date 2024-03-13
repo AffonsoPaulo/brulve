@@ -13,14 +13,16 @@
         <a href="{{ route('clients.create') }}" class="col-12 btn btn-primary">
             Novo Cliente
         </a>
+
         <div class="table-responsive rounded-3 mt-3">
-            <table class="table table-hover">
+            <table class="table table-hover align-middle">
                 <thead class="rounded-3">
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nome</th>
                     <th scope="col">E-mail</th>
                     <th scope="col">Telefone</th>
+                    <th scope="col">Tipo de conta</th>
                     <th scope="col">Ações</th>
                 </tr>
                 </thead>
@@ -37,12 +39,12 @@
                             <td>Conta Jurídica</td>
                         @endif
                         <td>
-                            <a href="{{ route('clients.show', $client->id) }}" class="btn btn-primary">Ver</a>
-                            <a href="{{ route('clients.edit', $client->id) }}" class="btn btn-warning">Editar</a>
+                            <a href="{{ route('clients.show', $client->id) }}" class="btn btn-primary"><i class="bi bi-person-lines-fill"></i></a>
+                            <a href="{{ route('clients.edit', $client->id) }}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
                             <form action="{{ route('clients.destroy', $client->id) }}" method="post" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Excluir</button>
+                                <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                             </form>
                         </td>
                     </tr>

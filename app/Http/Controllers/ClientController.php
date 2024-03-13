@@ -29,14 +29,17 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
             'name' => 'required|unique:clients,name',
             'email' => 'required|email|unique:clients,email',
-            'phone_number' => 'required',
+            'phone_number' => 'required|celular_com_ddd',
             'account_type' => 'required',
-            'cpf_cnpj' => 'required|cpf_cnpj|unique:clients,cpf_cnpj',
+            'cpf_cnpj' => 'required|unique:clients,cpf_cnpj|formato_cpf_ou_cnpj|cpf_ou_cnpj',
         ]);
 
+        $client = Client::create($validatedData);
+        return redirect('/clients')->with('success', 'Cliente foi criado com sucesso');
 
     }
 
@@ -54,7 +57,7 @@ class ClientController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('client.edit', ['client' => Client::find($id)]);
     }
 
     /**
@@ -62,7 +65,17 @@ class ClientController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone_number' => 'required|celular_com_ddd',
+            'account_type' => 'required',
+            'cpf_cnpj' => 'required|formato_cpf_ou_cnpj|cpf_ou_cnpj',
+        ]);
+
+        Client::whereId($id)->update($validatedData);
+
+        return redirect('/clients')->with('success', 'Cliente foi atualizado com sucesso');
     }
 
     /**
@@ -70,6 +83,7 @@ class ClientController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Client::destroy($id);
+        return redirect('/clients')->with('success', 'Cliente foi deletado com sucesso');
     }
 }

@@ -14,6 +14,7 @@ class Client extends Model
         'email',
         'phone_number',
         'account_type',
+        'cpf_cnpj'
     ];
 
     public function address()
