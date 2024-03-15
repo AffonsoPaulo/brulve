@@ -16,6 +16,7 @@ class Address extends Model
         'city',
         'state',
         'zip',
+        'complement',
         'client_id',
     ];
 

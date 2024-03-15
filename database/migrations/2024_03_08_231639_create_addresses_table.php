@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('city')->nullable(false);
             $table->string('state')->nullable(false);
             $table->string('zip')->nullable(false);
+            $table->string('complement')->nullable();
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->timestamps();

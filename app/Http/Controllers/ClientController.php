@@ -39,7 +39,7 @@ class ClientController extends Controller
         ]);
 
         $client = Client::create($validatedData);
-        return redirect('/clients')->with('success', 'Cliente foi criado com sucesso');
+        return redirect()->route('clients.address.create', $client->id)->with('success', 'Cliente foi criado com sucesso');
 
     }
 
