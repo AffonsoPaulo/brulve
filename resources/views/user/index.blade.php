@@ -1,17 +1,17 @@
 <x-main>
-    <x-slot:title>Clientes</x-slot:title>
+    <x-slot:title>Usuários do Sistema</x-slot:title>
 
     <section class="d-flex justify-content-between align-content-center flex-wrap bg-body-tertiary rounded-3 p-3 mt-3"
              style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-        <h5 class="m-0">Clientes</h5>
+        <h5 class="m-0">Usuários do sistema</h5>
         <ol class="breadcrumb m-0">
             <li class="breadcrumb-item"><a href="/">Início</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Clientes</li>
+            <li class="breadcrumb-item active" aria-current="page">Usuários do sistema</li>
         </ol>
     </section>
     <section class="bg-body-tertiary rounded-3 p-3 mt-3">
-        <a href="{{ route('clients.create') }}" class="col-12 btn btn-primary">
-            Novo Cliente
+        <a href="{{ route('users.create') }}" class="col-12 btn btn-primary">
+            Novo Usuário
         </a>
 
         <div class="table-responsive rounded-3 mt-3">
@@ -21,27 +21,18 @@
                     <th scope="col">ID</th>
                     <th scope="col">Nome</th>
                     <th scope="col">E-mail</th>
-                    <th scope="col">Telefone</th>
-                    <th scope="col">Tipo de conta</th>
                     <th scope="col">Ações</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($clients as $client)
+                @foreach($users as $user)
                     <tr>
-                        <th scope="row">{{ $client->id }}</th>
-                        <td>{{ $client->name }}</td>
-                        <td>{{ $client->email }}</td>
-                        <td>{{ $client->phone_number }}</td>
-                        @if($client->account_type === 0)
-                            <td>Conta Física</td>
-                        @else
-                            <td>Conta Jurídica</td>
-                        @endif
+                        <th scope="row">{{ $user->id }}</th>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
                         <td>
-                            <a href="{{ route('clients.show', $client->id) }}" class="btn btn-primary"><i class="bi bi-person-lines-fill"></i></a>
-                            <a href="{{ route('clients.edit', $client->id) }}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
-                            <form action="{{ route('clients.destroy', $client->id) }}" method="post" class="d-inline">
+                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+                            <form action="{{ route('users.destroy', $user->id) }}" method="post" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>

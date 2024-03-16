@@ -12,8 +12,9 @@
 <header>
     <nav class="navbar bg-body-tertiary">
         <div class="container">
-            <a class="navbar-brand" href="#">Brulve</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            <a class="navbar-brand ps-3" href="#">Brulve</a>
+            <button class="navbar-toggler me-3" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar"
                     aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -25,31 +26,32 @@
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
+                        <li class="btn btn-primary nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                aria-expanded="false">
-                                Dropdown
+                                <i class="bi bi-person-circle me-1"></i>
+                                Perfil
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <ul class="dropdown-menu text-center">
+                                <li><p class="dropdown-item" href="#">{{ Auth::user()->name }}</p></li>
+                                <li><a class="dropdown-item text-warning"
+                                       href="{{ route('users.edit', Auth::user()->id) }}">Editar usuário</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item text-danger" href="{{ route('logout') }}">Sair</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item mt-2">
+                            <a class="col-12 btn btn-outline-secondary" href="/">Início</a>
+                        </li>
+                        <li class="nav-item mt-2">
+                            <a class="col-12 btn btn-outline-secondary" href="{{ route('clients.index') }}">Clientes</a>
+                        </li>
+                        <li class="nav-item mt-2">
+                            <a class="col-12 btn btn-outline-secondary" href="{{ route('users.index') }}">Sistema</a>
+                        </li>
                     </ul>
-                    <form class="d-flex mt-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                 </div>
             </div>
         </div>

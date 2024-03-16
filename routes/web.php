@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +17,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::post('/authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
+
+
 Route::get('/', function () {
     return view('home');
-})->name('home');
+})->name('home')->middleware('auth');
 
-Route::resource('clients', ClientController::class);
-Route::resource('clients.address', AddressController::class)->shallow()->except(['index', 'show']);
+Route::resource('users', UserController::class)->except(['show'])->middleware('auth');
+Route::resource('clients', ClientController::class)->middleware('auth');
+Route::resource('clients.address', AddressController::class)->shallow()->except(['index', 'show'])->middleware('auth');

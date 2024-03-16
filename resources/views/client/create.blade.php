@@ -4,9 +4,9 @@
         @vite(['resources/js/clientCreate.js'])
     </x-slot:links>
 
-    <section class="d-flex justify-content-between align-content-center bg-body-tertiary rounded-3 p-2 mt-3"
+    <section class="d-flex justify-content-between align-content-center flex-wrap bg-body-tertiary rounded-3 p-3 mt-3"
              style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-        <h5 class="m-0">Adicionar clientes</h5>
+        <h5 class="m-0">Adicionar cliente</h5>
         <ol class="breadcrumb m-0">
             <li class="breadcrumb-item"><a href="/">Início</a></li>
             <li class="breadcrumb-item"><a href="/clients">Clientes</a></li>
@@ -14,7 +14,7 @@
         </ol>
     </section>
 
-    <section class="bg-body-tertiary rounded-3 p-2 mt-3">
+    <section class="bg-body-tertiary rounded-3 p-3 mt-3">
         <form action="{{ route('clients.store') }}" method="post">
             @csrf
             <p class="form-label">
@@ -39,9 +39,9 @@
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
                        value="{{ old("name") }}">
                 @error('name')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
                 @enderror
             </div>
             <div class="mb-3">
@@ -50,9 +50,9 @@
                        placeholder="nome@dominio.com"
                        value="{{ old("email") }}">
                 @error('email')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
                 @enderror
             </div>
             <div class="mb-3">
@@ -61,9 +61,9 @@
                        name="phone_number"
                        placeholder="(22) 99999-9999" value="{{ old("phone_number") }}" maxlength="15">
                 @error('phone_number')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
                 @enderror
             </div>
             <div class="mb-3">
@@ -72,13 +72,15 @@
                        name="cpf_cnpj"
                        placeholder="999.999.999-99 ou 99.999.999/9999-99" value="{{ old("cpf_cnpj") }}" maxlength="18">
                 @error('cpf_cnpj')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
                 @enderror
             </div>
-            <button type="reset" class="btn btn-secondary">Resetar</button>
-            <button type="submit" class="btn btn-primary">Adicionar</button>
+            <div class="d-flex justify-content-between">
+                <button type="reset" class="btn btn-secondary">Resetar</button>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
         </form>
     </section>
 

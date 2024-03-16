@@ -4,7 +4,7 @@
         @vite(['resources/js/clientCreate.js'])
     </x-slot:links>
 
-    <section class="d-flex justify-content-between align-content-center bg-body-tertiary rounded-3 p-2 mt-3"
+    <section class="d-flex justify-content-between align-content-center flex-wrap bg-body-tertiary rounded-3 p-3 mt-3"
              style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <h5 class="m-0">Editar cliente</h5>
         <ol class="breadcrumb m-0">
@@ -14,7 +14,7 @@
         </ol>
     </section>
 
-    <section class="bg-body-tertiary rounded-3 p-2 mt-3">
+    <section class="bg-body-tertiary rounded-3 p-3 mt-3">
         <form action="{{ route('clients.update', $client->id) }}" method="post">
             @csrf
             @METHOD('PUT')
@@ -79,8 +79,10 @@
                 </div>
                 @enderror
             </div>
-            <button type="reset" class="btn btn-secondary">Resetar</button>
-            <button type="submit" class="btn btn-primary">Editar</button>
+            <div class="d-flex justify-content-between">
+                <button type="reset" class="btn btn-secondary">Resetar</button>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
         </form>
     </section>
 </x-main>
