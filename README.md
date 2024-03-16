@@ -10,11 +10,11 @@ Siga os passos abaixo para instalar e configurar o projeto em seu ambiente local
 
 2. Navegue até o diretório do projeto e execute os seguintes comandos para instalar as dependências necessárias:
 
-\`\`\`bash
+```bash
 composer install
 npm install
 npm run build
-\`\`\`
+```
 
 3. Se o arquivo `.env` não existir no diretório raiz do projeto, copie o arquivo `.env.example` e renomeie a cópia para `.env`.
 
@@ -22,18 +22,10 @@ npm run build
 
 5. Com o servidor MySQL em execução, execute os seguintes comandos para configurar o banco de dados e iniciar o servidor de desenvolvimento:
 
-\`\`\`bash
+```bash
 php artisan migrate
 php artisan key:generate
 php artisan serve
-\`\`\`
+```
 
 Agora, você deve ser capaz de acessar o projeto em seu navegador através do endereço `http://localhost:8000`.
-
-## Contribuição
-
-Contribuições são bem-vindas. Sinta-se à vontade para abrir uma issue ou enviar um pull request.
-
-## Licença
-
-Este projeto está licenciado sob a licença MIT.
