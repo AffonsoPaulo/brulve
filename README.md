@@ -24,6 +24,7 @@ npm run build
 
 ```bash
 php artisan migrate
+php artisan db:seed --class=UserSeeder
 php artisan key:generate
 php artisan serve
 ```
