@@ -1,8 +1,5 @@
 <x-main>
     <x-slot:title>Editar Usuário</x-slot:title>
-    <x-slot:links>
-        @vite(['resources/js/clientCreate.js'])
-    </x-slot:links>
 
     <section class="d-flex justify-content-between align-content-center flex-wrap bg-body-tertiary rounded-3 p-3 mt-3"
              style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">

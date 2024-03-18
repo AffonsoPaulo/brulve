@@ -15,6 +15,13 @@
     </section>
 
     <section class="bg-body-tertiary rounded-3 p-3 mt-3">
+
+        @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show mb-3" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <form action="{{ route('clients.store') }}" method="post">
             @csrf
             <p class="form-label">

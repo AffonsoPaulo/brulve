@@ -5,30 +5,33 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use Illuminate\Http\Request;
 
-class ClientController extends Controller
-{
+class ClientController extends Controller {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
+    public function index() {
         $clients = Client::all();
+        return view('client.index', compact('clients'));
+    }
+
+    public function search(Request $request) {
+        $search = $request->input('search');
+        $filter = $request->input('search_filter');
+        $clients = Client::where($filter, 'like', '%' . $search . '%')->get();
         return view('client.index', compact('clients'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
+    public function create() {
         return view('client.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
 
         $validatedData = $request->validate([
             'name' => 'required|unique:clients,name',
@@ -46,8 +49,7 @@ class ClientController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
+    public function show(string $id) {
         $client = Client::find($id);
         return view('client.show', compact('client'));
     }
@@ -55,16 +57,14 @@ class ClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
+    public function edit(string $id) {
         return view('client.edit', ['client' => Client::find($id)]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
+    public function update(Request $request, string $id) {
         $validatedData = $request->validate([
             'name' => 'required',
             'email' => 'required|email',
@@ -81,8 +81,7 @@ class ClientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
+    public function destroy(string $id) {
         Client::destroy($id);
         return redirect('/clients')->with('success', 'Cliente foi deletado com sucesso');
     }

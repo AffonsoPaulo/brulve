@@ -10,6 +10,14 @@
         </ol>
     </section>
     <section class="bg-body-tertiary rounded-3 p-3 mt-3">
+
+        @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show mb-3" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         <a href="{{ route('users.create') }}" class="col-12 btn btn-primary">
             Novo Usuário
         </a>

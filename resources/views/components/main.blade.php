@@ -12,7 +12,7 @@
 <header>
     <nav class="navbar bg-body-tertiary">
         <div class="container">
-            <a class="navbar-brand ps-3" href="#">Brulve</a>
+            <a class="navbar-brand ps-3" href="/">Brulve</a>
             <button class="navbar-toggler me-3" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar"
                     aria-controls="offcanvasNavbar" aria-label="Toggle navigation">

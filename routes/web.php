@@ -29,4 +29,5 @@ Route::get('/', function () {
 
 Route::resource('users', UserController::class)->except(['show'])->middleware('auth');
 Route::resource('clients', ClientController::class)->middleware('auth');
+Route::post('/clients/search', [ClientController::class, 'search'])->name('clients.search')->middleware('auth');
 Route::resource('clients.address', AddressController::class)->shallow()->except(['index', 'show'])->middleware('auth');
