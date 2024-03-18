@@ -29,4 +29,4 @@ php artisan key:generate
 php artisan serve
 ```
 
-Agora, você deve ser capaz de acessar o projeto em seu navegador através do endereço `http://localhost:8000`.
+Agora, você deve ser capaz de acessar o projeto em seu navegador através do endereço `http://localhost:8000` com o email `admin@admin.com` e senha `admin` padrões (troque-os depois).
